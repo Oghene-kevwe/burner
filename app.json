@@ -1,13 +1,20 @@
 {
   "expo": {
-    "scheme": "acme",
+    "splash": {
+      "image": "./assets/splashScreen.png",
+      "backgroundColor": "#0D0D0C",
+      "resizeMode": "contain"
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
+    },
+    "scheme": "burner",
     "web": {
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router"
-    ],
-    "name": "job-app",
-    "slug": "job-app"
+    "plugins": ["expo-router"],
+    "name": "burner",
+    "slug": "burner"
   }
 }
