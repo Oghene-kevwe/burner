@@ -14,7 +14,7 @@ import IndexImage1 from "../assets/indexImage1.js";
 import IndexImageCurve from "../assets/indexImageCurve.js";
 import SpotifyIcon from "../assets/spotifyIcon.js";
 
-import { COLORS, styleSafeArea } from "../constants/index.js";
+import { COLORS, styleGeneralView } from "../constants/index.js";
 
 const Index = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Index = () => {
       <View style={styles.headerContainer}>
         <PurpleVector />
       </View>
-      <SafeAreaView style={styleSafeArea}>
+      <View style={styleGeneralView}>
         <ScrollView>
           {/* index image */}
           <View style={styles.imageContainer}>
@@ -55,6 +55,9 @@ const Index = () => {
                   },
                   {
                     text: "Cancel",
+                    onPress: () => {
+                      router.push("/onBoarding");
+                    },
                   },
                 ],
                 { cancelable: true }
@@ -79,7 +82,7 @@ const Index = () => {
           </View>
           {/* end of terms of use  */}
         </ScrollView>
-      </SafeAreaView>
+      </View>
       <StatusBar style="light" />
     </>
   );
@@ -91,10 +94,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     backgroundColor: COLORS.secondary,
   },
-  safeAreaViewContainer: {
-    flex: 1,
-    backgroundColor: COLORS.secondary,
-  },
   imageContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -103,8 +102,6 @@ const styles = StyleSheet.create({
   },
   indexImageCurve: {
     position: "absolute",
-    borderColor: "red",
-    borderWidth: 2,
     bottom: -100,
   },
   stayInTuneContainer: {
@@ -148,9 +145,7 @@ const styles = StyleSheet.create({
     fontFamily: "Inter_500Medium",
   },
   termsOfUseContainer: {
-    paddingTop: 80,
-    // borderColor: "blue",
-    // borderWidth: 2,
+    marginTop: 80,
     alignItems: "center",
   },
   termsOfUseText: {

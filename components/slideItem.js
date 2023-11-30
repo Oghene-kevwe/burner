@@ -1,23 +1,42 @@
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  Pressable,
+} from "react-native";
 import React from "react";
-import OnboardingImage1 from "../assets/onBoardingImage1";
-import OnboardingImage2 from "../assets/onBoardingImage2";
-import OnboardingImage3 from "../assets/onBoardingImage3";
 import { COLORS } from "../constants";
 import Pagination from "./pagination";
+import ChevronRight from "../assets/chevronRight";
+import { height, width } from "../constants";
 
-const { width, height } = Dimensions.get("screen");
 const slideItem = ({ item, scrollX, index }) => {
-  const { title, description } = item;
+  const { title, description, img } = item;
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.titleDescContainer}>
         {/* title */}
         <Text style={styles.title}>{title}</Text>
         {/* description */}
         <Text style={styles.descriptionText}>{description}</Text>
       </View>
-      <Pagination scrollX={scrollX} index={index} />
+      {/* pagination container */}
+      <View style={styles.paginationContainer}>
+        <Pagination scrollX={scrollX} index={index} />
+        <Pressable style={styles.skipButton}>
+          {index === 2 ? (
+            <Text style={styles.getStarted}>GET STARTED</Text>
+          ) : (
+            <View style={styles.skipButtonTextContainer}>
+              <Text style={styles.skipButtonText}>Skip</Text>
+              <ChevronRight />
+            </View>
+          )}
+        </Pressable>
+      </View>
+      <View style={styles.imageContainer}>{img}</View>
     </View>
   );
 };
@@ -26,17 +45,19 @@ export default slideItem;
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft: 25,
-    paddingTop: 120,
+    paddingTop: 100,
     width,
     height,
+  },
+  titleDescContainer: {
+    paddingHorizontal: 25,
   },
   title: {
     fontFamily: "Inter_700Bold",
     fontSize: 40,
     lineHeight: 48,
     color: COLORS.primary300,
-    paddingRight: 100,
+    width:"80%",
   },
   descriptionText: {
     color: COLORS.primary100,
@@ -44,6 +65,42 @@ const styles = StyleSheet.create({
     lineHeight: 23,
     letterSpacing: 0.32,
     paddingTop: 20,
-    paddingRight: 150,
+    paddingRight: 110,
+  },
+  paginationContainer: {
+    paddingTop: 100,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 25,
+    borderColor: "red",
+  },
+  skipButton: {
+    backgroundColor: COLORS.primary400,
+    height: 56,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 24,
+    borderRadius: 30,
+  },
+  skipButtonTextContainer: {
+    flexDirection: "row",
+  },
+  skipButtonText: {
+    color: COLORS.primary100,
+    fontFamily: "Inter_500Medium",
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.28,
+  },
+  getStarted: {
+    color: COLORS.primary100,
+    fontFamily: "Inter_500Medium",
+    fontSize: 14,
+    lineHeight: 20,
+    letterSpacing: 0.28,
+  },
+  imageContainer: {
+    marginTop: "auto",
   },
 });

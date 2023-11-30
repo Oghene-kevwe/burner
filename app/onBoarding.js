@@ -1,21 +1,13 @@
 import React from "react";
-import {
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Image,
-} from "react-native";
-import { styleSafeArea } from "../constants";
-import { COLORS } from "../constants";
+import { View } from "react-native";
+import { styleGeneralView } from "../constants";
 import Slider from "../components/slider";
 
 const onBoarding = () => {
   return (
-    <SafeAreaView style={styleSafeArea}>
+    <View style={styleGeneralView}>
       <Slider />
-    </SafeAreaView>
+    </View>
   );
 };
 

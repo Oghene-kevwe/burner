@@ -1,3 +1,3 @@
-import { COLORS, styleSafeArea } from "./theme";
+import { COLORS, styleGeneralView, height, width } from "./theme";
 
-export { COLORS, styleSafeArea };
+export { COLORS, styleGeneralView, height, width };

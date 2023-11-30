@@ -1,3 +1,6 @@
+import { Dimensions } from "react-native";
+const { height, width } = Dimensions.get("screen");
+
 const COLORS = {
   primary100: "#F9F6FE",
   primary300: "#AA6DFF",
@@ -5,9 +8,10 @@ const COLORS = {
   secondary: "#0D0D0C",
 };
 
-const styleSafeArea = {
+const styleGeneralView = {
   flex: 1,
   backgroundColor: COLORS.secondary,
 };
 
-export { COLORS, styleSafeArea  };
+
+export { COLORS, styleGeneralView,height,width };

@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, Animated, Dimensions } from "react-native";
 import onboardingData from "../data/onboardingData";
 import { COLORS } from "../constants";
-
-const { width } = Dimensions.get("screen");
+import { width } from "../constants";
 
 const Pagination = ({ scrollX, index }) => {
   return (
@@ -33,10 +32,7 @@ export default Pagination;
 
 const styles = StyleSheet.create({
   dotContainer: {
-    position: "absolute",
     flexDirection: "row",
-    top: "50%",
-    left: 25,
   },
   dot: {
     width: 8,
